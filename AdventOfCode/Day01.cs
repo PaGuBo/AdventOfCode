@@ -25,7 +25,7 @@ namespace AdventOfCode
                 var distance = Convert.ToInt32(instruction.Substring(1));
 
                 if ((dir == Direction.North && turn == "L") ||
-                    (dir == Direction.South && turn == "R"))
+                    (dir == Direction.South && turn == "R")) 
                 {
                     dir = Direction.West;
                     xPos -= distance;
