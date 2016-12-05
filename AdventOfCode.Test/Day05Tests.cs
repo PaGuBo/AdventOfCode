@@ -32,7 +32,7 @@ namespace AdventOfCode.Tests
         [TestMethod()]
         public void GetDoorPasswordPart2Test2()
         {
-            Assert.AreEqual("05ace8e3", Day05.GetDoorPasswordPart2("abbhdwsy"));
+            Assert.AreEqual("424a0197", Day05.GetDoorPasswordPart2("abbhdwsy"));
         }
     }
 }
