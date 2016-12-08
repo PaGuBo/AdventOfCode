@@ -1,0 +1,21 @@
+﻿rect 3x3
+rotate column x=1 by 1
+rotate column x=1 by 1
+rotate column x=1 by 1
+rotate column x=1 by 1
+rotate column x=1 by 1
+rotate column x=1 by 1
+rotate column x=1 by 1
+rotate column x=1 by 1
+rotate column x=1 by 1
+rotate column x=1 by 1
+rotate column x=1 by 1
+rotate column x=1 by 1
+rotate column x=1 by 1
+rotate column x=1 by 1
+rotate column x=1 by 1
+rotate column x=1 by 1
+rotate column x=1 by 1
+rotate column x=1 by 1
+rotate column x=1 by 1
+rotate column x=1 by 1
