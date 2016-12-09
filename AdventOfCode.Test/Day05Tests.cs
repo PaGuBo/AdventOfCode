@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode.Tests
+namespace AdventOfCode.SleighPuzzles.Tests
 {
     [TestClass()]
-    public class Day05Tests
+    public class Puzzle2016Day05Tests
     {
         [TestMethod()]
         public void GetDoorPasswordPart1Test1()

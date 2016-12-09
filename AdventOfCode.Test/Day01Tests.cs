@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode.Tests
+namespace AdventOfCode.SleighPuzzles.Tests
 {
     [TestClass()]
-    public class Day01Tests
+    public class Puzzle2016Day01Tests
     {
         [TestMethod()]
         public void ShortestDistanceOnGridTest1()

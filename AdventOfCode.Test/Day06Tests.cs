@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode.Tests
+namespace AdventOfCode.SleighPuzzles.Tests
 {
     [TestClass()]
-    public class Day06Tests
+    public class Puzzle2016Day06Tests
     {
         [TestMethod()]
         [DeploymentItem(@"2016\Inputs\", "Inputs")]

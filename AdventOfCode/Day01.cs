@@ -1,8 +1,9 @@
-﻿using System;
+﻿using AdventOfCode.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace AdventOfCode
+namespace AdventOfCode.SleighPuzzles
 {
     public static class Day01
     {

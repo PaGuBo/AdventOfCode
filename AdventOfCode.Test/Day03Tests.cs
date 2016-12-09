@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 using System.Resources;
 using System.Reflection;
 
-namespace AdventOfCode.Tests
+namespace AdventOfCode.SleighPuzzles.Tests
 {
     [TestClass()]
-    public class Day03Tests
+    public class Puzzle2016Day03Tests
     {
         [TestMethod()]
         public void NumberOfValidTrianglesTest1()
