@@ -50,14 +50,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Day01Tests.cs" />
-    <Compile Include="Day02Tests.cs" />
-    <Compile Include="Day03Tests.cs" />
-    <Compile Include="Day04Tests.cs" />
-    <Compile Include="Day05Tests.cs" />
-    <Compile Include="Day06Tests.cs" />
-    <Compile Include="Day07Tests.cs" />
-    <Compile Include="Day09Tests.cs" />
+    <Compile Include="2016\Day01Tests.cs" />
+    <Compile Include="2016\Day02Tests.cs" />
+    <Compile Include="2016\Day03Tests.cs" />
+    <Compile Include="2016\Day04Tests.cs" />
+    <Compile Include="2016\Day05Tests.cs" />
+    <Compile Include="2016\Day06Tests.cs" />
+    <Compile Include="2016\Day07Tests.cs" />
+    <Compile Include="2016\Day09Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -72,31 +72,33 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Inputs\day06hard.txt">
+    <Content Include="2016\Inputs\day06hard.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Inputs\day06simple.txt">
+    <Content Include="2016\Inputs\day06simple.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Inputs\day07hard.txt">
+    <Content Include="2016\Inputs\day07hard.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Inputs\day07simple.txt">
+    <Content Include="2016\Inputs\day07simple.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Inputs\day07simpleSsl.txt">
+    <Content Include="2016\Inputs\day07simpleSsl.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Inputs\day09.txt">
+    <Content Include="2016\Inputs\day09.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Inputs\listOfRooms.txt">
+    <Content Include="2016\Inputs\listOfRooms.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Inputs\shortListOfRooms.txt">
+    <Content Include="2016\Inputs\shortListOfRooms.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Inputs\triangles.txt" />
+    <Content Include="2016\Inputs\triangles.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

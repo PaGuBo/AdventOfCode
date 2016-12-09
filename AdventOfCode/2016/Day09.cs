@@ -31,7 +31,7 @@ namespace AdventOfCode
                 split = remainder.Split(new char[] { '(' }, 2);
                 sb.Append(split[0]);
             }
-            sb.Append(remainder);
+            //sb.Append(remainder);
             return sb.ToString();
         }
 

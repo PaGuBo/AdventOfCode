@@ -36,7 +36,7 @@ namespace AdventOfCode.Tests
         }
 
         [TestMethod()]
-        [DeploymentItem(@"Inputs\", "Inputs")]
+        [DeploymentItem(@"2016\Inputs\", "Inputs")]
         public void DecompressTest_5()
         {
             string testData = System.IO.File.ReadAllText(@"Inputs\day09.txt").Replace("\r", "");
@@ -66,7 +66,7 @@ namespace AdventOfCode.Tests
         
 
         [TestMethod()]
-        [DeploymentItem(@"Inputs\", "Inputs")]
+        [DeploymentItem(@"2016\Inputs\", "Inputs")]
         public void GetDecompressedSizeTest_2()
         {
             string testData = System.IO.File.ReadAllText(@"Inputs\day09.txt").Replace("\r", "");

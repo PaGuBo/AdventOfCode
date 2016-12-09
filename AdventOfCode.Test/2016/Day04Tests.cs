@@ -12,7 +12,7 @@ namespace AdventOfCode.Tests
     public class Day04Tests
     {
         [TestMethod()]
-        [DeploymentItem(@"Inputs\", "Inputs")]
+        [DeploymentItem(@"2016\Inputs\", "Inputs")]
         public void SumOfSectorIdsShortTest()
         {
             string testData = System.IO.File.ReadAllText(@"Inputs\shortListOfRooms.txt");
@@ -21,7 +21,7 @@ namespace AdventOfCode.Tests
         }
 
         [TestMethod()]
-        [DeploymentItem(@"Inputs\", "Inputs")]
+        [DeploymentItem(@"2016\Inputs\", "Inputs")]
         public void SumOfSectorIdsTest()
         {
             string testData = System.IO.File.ReadAllText(@"Inputs\listOfRooms.txt");
@@ -31,7 +31,7 @@ namespace AdventOfCode.Tests
 
 
         [TestMethod()]
-        [DeploymentItem(@"Inputs\", "Inputs")]
+        [DeploymentItem(@"2016\Inputs\", "Inputs")]
         public void NorthPoleObjectStorageTest()
         {
             string testData = System.IO.File.ReadAllText(@"Inputs\listOfRooms.txt");

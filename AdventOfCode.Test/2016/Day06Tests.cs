@@ -12,7 +12,7 @@ namespace AdventOfCode.Tests
     public class Day06Tests
     {
         [TestMethod()]
-        [DeploymentItem(@"Inputs\", "Inputs")]
+        [DeploymentItem(@"2016\Inputs\", "Inputs")]
         public void DecodeCorruptedMessagePart1Test1()
         {
             string testData = System.IO.File.ReadAllText(@"Inputs\day06simple.txt").Replace("\r", "");
@@ -21,7 +21,7 @@ namespace AdventOfCode.Tests
         }
 
         [TestMethod()]
-        [DeploymentItem(@"Inputs\", "Inputs")]
+        [DeploymentItem(@"2016\Inputs\", "Inputs")]
         public void DecodeCorruptedMessagePart1Test2()
         {
             string testData = System.IO.File.ReadAllText(@"Inputs\day06hard.txt").Replace("\r", "");
@@ -30,7 +30,7 @@ namespace AdventOfCode.Tests
         }
 
         [TestMethod()]
-        [DeploymentItem(@"Inputs\", "Inputs")]
+        [DeploymentItem(@"2016\Inputs\", "Inputs")]
         public void DecodeCorruptedMessagePart2Test1()
         {
             string testData = System.IO.File.ReadAllText(@"Inputs\day06simple.txt").Replace("\r", "");
@@ -39,7 +39,7 @@ namespace AdventOfCode.Tests
         }
 
         [TestMethod()]
-        [DeploymentItem(@"Inputs\", "Inputs")]
+        [DeploymentItem(@"2016\Inputs\", "Inputs")]
         public void DecodeCorruptedMessagePart2Test2()
         {
             string testData = System.IO.File.ReadAllText(@"Inputs\day06hard.txt").Replace("\r", "");
