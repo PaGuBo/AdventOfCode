@@ -11,11 +11,12 @@ namespace Day08
 
         static void Main(string[] args)
         {
-            Console.ReadLine();
+            //Console.ReadLine();
             Console.CursorVisible = false;
             //var input = File.ReadAllText(@"simple.txt").Replace("\r", "").Split('\n');
             //var input = File.ReadAllText(@"custom.txt").Replace("\r", "").Split('\n');
-            var input = File.ReadAllText(@"hard.txt").Replace("\r", "").Split('\n');
+            //var input = File.ReadAllText(@"hard.txt").Replace("\r", "").Split('\n');
+            var input = File.ReadAllText(@"reddit.txt").Replace("\r", "").Split('\n');
             var display = new char[6, 50];
 
             foreach(var line in input)
