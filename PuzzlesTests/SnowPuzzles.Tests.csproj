@@ -80,13 +80,15 @@
     <Content Include="Inputs\Day03.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Inputs\naughtyNiceStrings.txt">
+    <Content Include="Inputs\naughtyNiceStringsHard.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Inputs\EF.Reverse.POCO.Core.ttinclude" />
-    <None Include="Inputs\EF.Reverse.POCO.ttinclude" />
+    <Content Include="Inputs\naughtyNiceStringsSimple.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Inputs\naughtyNiceStringsSimple2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
