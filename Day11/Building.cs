@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace Day11
 {
-    public class Building : ICloneable
+    public class Item : ICloneable
     {
-        public List<List<string>> Map { get; private set; }
+        public List<List<Item>> Map { get; private set; }
         public Dictionary<string, int> History { get; set; }
         public int ElevatorFloor { get; set; }
 
-        public Building(List<List<string>> map, int elevatorFloor) : this(map, elevatorFloor, new Dictionary<string, int>())
+        public Item(List<List<Item>> map, int elevatorFloor) : this(map, elevatorFloor, new Dictionary<string, int>())
         {
 
         }
-        public Building(List<List<string>> map, int elevatorFloor, Dictionary<string, int> history)
+        public Item(List<List<Item>> map, int elevatorFloor, Dictionary<string, int> history)
         {
             Map = map;
             ElevatorFloor = elevatorFloor;
@@ -27,16 +27,16 @@ namespace Day11
             get
             {
                 var sb = new StringBuilder();
+                sb.Append(this.ElevatorFloor);
                 for(int i = 0; i < Map.Count; i++)
                 {
-                    sb.Append($"F{i}:");
+                    sb.Append($"{i}");
                     foreach (var item in Map[i].OrderBy(x => x))
                     {
-                        sb.Append($"{item} ");
+                        sb.Append($"{(byte)item.Material}{(byte)item.ItemType}");
                     }
                     
                 }
-                sb.Append($"E:{ElevatorFloor}");
                 return sb.ToString().Trim();
             }
         }
@@ -45,52 +45,18 @@ namespace Day11
 
         public bool IsValid()
         {
-            //foreach (var floor in Map)
-            //{
-            //    if (floor.All(x => x.Substring(4) == "-chp") || //this floor only has chips 
-            //        floor.All(x => x.Substring(4) == "-gen"))   //or only has generators
-            //    {
-            //        continue;
-            //    }
-            //    //find all the chips
-            //    //then for all the chips make sure there's a generator on the floor
-            //    else if (floor.Where(x => x.Substring(4) == "-chp") 
-            //                  .All(x => floor.Where(y => y.Substring(4) == "-gen")
-            //                                 .Any(y => y.Substring(0, 4) == x.Substring(0, 4))))
-            //    {
-            //        continue;
-            //    }
-            //    else
-            //    {
-            //        return false;
-            //    }
-            //}
-            ////check to make sure that the building doesn't have duplicate history
-            ////this means elevator went back to a previus identical state, which we don't want
-            //if (History.Count() != History.Distinct().Count())
-            //{
-            //    return false;
-            //}
-            //if (History.Count > 10000)
-            //{
-            //    return false;
-            //}
-            //return true;
-
-
-
             foreach (var floor in Map)
             {
-                if (floor.All(x => x[2] == 'p') || //this floor only has chips 
-                    floor.All(x => x[2] == 'n'))   //or only has generators
+                if (floor.All(x => x.ItemType == ItemType.GENERATOR) || //this floor only has chips 
+                    floor.All(x => x.ItemType == ItemType.MICROCHIP))   //or only has generators
                 {
                     continue;
                 }
                 //find all the chips
                 //then for all the chips make sure there's a generator on the floor
-                else if (floor.Where(x => x[2] == 'p')
-                              .All(x => floor.Where(y => y[2] == 'n')
-                                             .Any(y => y.Substring(0, 2) == x.Substring(0, 2))))
+                else if (floor.Where(x => x.ItemType == ItemType.MICROCHIP)
+                              .All(x => floor.Where(y => y.ItemType == ItemType.GENERATOR)
+                                             .Any(y => y.Material == x.Material)))
                 {
                     continue;
                 }
@@ -114,9 +80,9 @@ namespace Day11
         public bool IsSolved()
         {
             return Map[0].Count == 0 && Map[1].Count == 0 && Map[2].Count == 0 && 
-                (Map[3].Where(x => x[2] == 'p')
-                              .All(x => Map[3].Where(y => y[2] == 'n')
-                                             .Any(y => y.Substring(0, 2) == x.Substring(0, 2))));
+                (Map[3].Where(x => x.ItemType == ItemType.MICROCHIP)
+                              .All(x => Map[3].Where(y => y.ItemType == ItemType.GENERATOR)
+                                             .Any(y => y.Material == x.Material)));
         }
         public override string ToString()
         {
@@ -144,10 +110,10 @@ namespace Day11
 
         public object Clone()
         {
-            var map = new List<List<string>>();
+            var map = new List<List<Item>>();
             foreach(var floor in Map)
             {
-                var items = new List<string>();
+                var items = new List<Item>();
                 items.AddRange(floor);
                 map.Add(items);
             }
@@ -158,7 +124,7 @@ namespace Day11
             }
             
 
-            return new Building(map, ElevatorFloor, history);
+            return new Item(map, ElevatorFloor, history);
         }
 
 

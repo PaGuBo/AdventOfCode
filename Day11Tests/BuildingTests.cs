@@ -15,73 +15,76 @@ namespace Day11.Tests
         public void IsValidTest_1()
         {
 
-            List<List<string>> map = new List<List<string>>{ new List<string> { "thul-gen", "thul-chp", "plut-gen", "stro-gen"},
-                                                             new List<string> { "plut-chp", "stro-chp"},
-                                                             new List<string> { "prom-gen", "prom-chp", "ruth-gen", "ruth-chp"},
-                                                             new List<string> (){ } };
+            List<List<Item>> map = new List<List<Item>> {
+                new List<Item> { new Item(Material.HYDROGEN, ItemType.MICROCHIP),
+                                 new Item(Material.LITHIUM, ItemType.MICROCHIP)},
 
-            Building building = new Building(map, 0);
+                new List<Item> { new Item(Material.HYDROGEN, ItemType.GENERATOR)},
+                new List<Item> { new Item(Material.LITHIUM, ItemType.GENERATOR)},
+                new List<Item> { } };
+
+            Item building = new Item(map, 0);
             Assert.IsTrue(building.IsValid());
         }
-        [TestMethod()]
-        public void IsValidTest_2()
-        {
-            List<List<string>> map = new List<List<string>>{ new List<string> { "thul-gen", "thul-chp", "plut-gen", "stro-gen"},
-                                                             new List<string> { "plut-chp", "stro-chp"},
-                                                             new List<string> { "prom-chp", "ruth-gen", "ruth-chp"},
-                                                             new List<string> { "prom-gen" } };
+        //[TestMethod()]
+        //public void IsValidTest_2()
+        //{
+        //    List<List<string>> map = new List<List<string>>{ new List<string> { "thul-gen", "thul-chp", "plut-gen", "stro-gen"},
+        //                                                     new List<string> { "plut-chp", "stro-chp"},
+        //                                                     new List<string> { "prom-chp", "ruth-gen", "ruth-chp"},
+        //                                                     new List<string> { "prom-gen" } };
 
-            Building building = new Building(map, 0);
-            Assert.IsFalse(building.IsValid());
-        }
+        //    Building building = new Building(map, 0);
+        //    Assert.IsFalse(building.IsValid());
+        //}
 
-        [TestMethod()]
-        public void IsValidTest_3()
-        {
-            List<List<string>> map = new List<List<string>>{ new List<string> { "thul-gen", "thul-chp", "plut-gen"},
-                                                             new List<string> { "plut-chp", "stro-chp", "stro-gen"},
-                                                             new List<string> { "prom-gen", "prom-chp", "ruth-gen", "ruth-chp"},
-                                                             new List<string> (){ } };
+        //[TestMethod()]
+        //public void IsValidTest_3()
+        //{
+        //    List<List<string>> map = new List<List<string>>{ new List<string> { "thul-gen", "thul-chp", "plut-gen"},
+        //                                                     new List<string> { "plut-chp", "stro-chp", "stro-gen"},
+        //                                                     new List<string> { "prom-gen", "prom-chp", "ruth-gen", "ruth-chp"},
+        //                                                     new List<string> (){ } };
 
-            Building building = new Building(map, 0);
-            Assert.IsFalse(building.IsValid());
-        }
+        //    Building building = new Building(map, 0);
+        //    Assert.IsFalse(building.IsValid());
+        //}
 
-        [TestMethod()]
-        public void IsValidTest_4()
-        {
-            List<List<string>> map = new List<List<string>>{ new List<string> { "plut-gen", "stro-gen"},
-                                                             new List<string> { "plut-chp", "stro-chp"},
-                                                             new List<string> { "ruth-gen", "ruth-chp"},
-                                                             new List<string> { "prom-gen", "prom-chp", "thul-gen", "thul-chp" } };
+        //[TestMethod()]
+        //public void IsValidTest_4()
+        //{
+        //    List<List<string>> map = new List<List<string>>{ new List<string> { "plut-gen", "stro-gen"},
+        //                                                     new List<string> { "plut-chp", "stro-chp"},
+        //                                                     new List<string> { "ruth-gen", "ruth-chp"},
+        //                                                     new List<string> { "prom-gen", "prom-chp", "thul-gen", "thul-chp" } };
 
-            Building building = new Building(map, 0);
-            Assert.IsTrue(building.IsValid());
-        }
+        //    Building building = new Building(map, 0);
+        //    Assert.IsTrue(building.IsValid());
+        //}
 
-        [TestMethod()]
-        public void StateTest_1()
-        {
-            List<List<string>> map = new List<List<string>>{ new List<string> { "plut-gen", "stro-gen"},
-                                                             new List<string> { "plut-chp", "stro-chp"},
-                                                             new List<string> { "ruth-gen", "ruth-chp"},
-                                                             new List<string> { "prom-gen", "prom-chp", "thul-gen", "thul-chp" } };
+        //[TestMethod()]
+        //public void StateTest_1()
+        //{
+        //    List<List<string>> map = new List<List<string>>{ new List<string> { "plut-gen", "stro-gen"},
+        //                                                     new List<string> { "plut-chp", "stro-chp"},
+        //                                                     new List<string> { "ruth-gen", "ruth-chp"},
+        //                                                     new List<string> { "prom-gen", "prom-chp", "thul-gen", "thul-chp" } };
 
-            Building building = new Building(map, 0);
-            Assert.AreEqual("FLOOR 0: plut-gen stro-gen FLOOR 1: plut-chp stro-chp FLOOR 2: ruth-chp ruth-gen FLOOR 3: prom-chp prom-gen thul-chp thul-gen", building.State);
-        }
+        //    Building building = new Building(map, 0);
+        //    Assert.AreEqual("FLOOR 0: plut-gen stro-gen FLOOR 1: plut-chp stro-chp FLOOR 2: ruth-chp ruth-gen FLOOR 3: prom-chp prom-gen thul-chp thul-gen", building.State);
+        //}
 
-        [TestMethod()]
-        public void StateTest_2()
-        {
-            List<List<string>> map = new List<List<string>>{ new List<string> { "stro-gen", "plut-gen"},
-                                                             new List<string> { "stro-chp", "plut-chp" },
-                                                             new List<string> { "ruth-gen", "ruth-chp"},
-                                                             new List<string> { "thul-gen", "prom-gen", "prom-chp", "thul-chp" } };
+        //[TestMethod()]
+        //public void StateTest_2()
+        //{
+        //    List<List<string>> map = new List<List<string>>{ new List<string> { "stro-gen", "plut-gen"},
+        //                                                     new List<string> { "stro-chp", "plut-chp" },
+        //                                                     new List<string> { "ruth-gen", "ruth-chp"},
+        //                                                     new List<string> { "thul-gen", "prom-gen", "prom-chp", "thul-chp" } };
 
-            Building building = new Building(map, 0);
-            Assert.AreEqual("FLOOR 0: plut-gen stro-gen FLOOR 1: plut-chp stro-chp FLOOR 2: ruth-chp ruth-gen FLOOR 3: prom-chp prom-gen thul-chp thul-gen", building.State);
-        }
+        //    Building building = new Building(map, 0);
+        //    Assert.AreEqual("FLOOR 0: plut-gen stro-gen FLOOR 1: plut-chp stro-chp FLOOR 2: ruth-chp ruth-gen FLOOR 3: prom-chp prom-gen thul-chp thul-gen", building.State);
+        //}
 
     }
 }

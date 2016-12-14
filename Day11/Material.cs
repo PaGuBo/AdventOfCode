@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Day11
 {
-    enum Material : sbyte
+    public enum Material : byte
     {
         THULIUM,
         PLUTONIUM,
@@ -14,6 +14,8 @@ namespace Day11
         PROMETHIUM,
         RUTHENIUM,
         ELERIUM,
-        DILITHIUM
+        DILITHIUM,
+        HYDROGEN,
+        LITHIUM
     }
 }
