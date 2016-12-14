@@ -142,7 +142,7 @@ namespace Day11
                 var combinations = GetAllPossibleCombinations(building.Map[building.ElevatorFloor]);
                 foreach (var combo in combinations)
                 {
-                    if (building.ElevatorFloor > 0)
+                    if (building.ElevatorFloor > 0 && building.Map[building.ElevatorFloor].Count != 0)
                     {
                         var newBuilding = MoveItems(building, building.ElevatorFloor, building.ElevatorFloor - 1, combo);
                         var newBuildingState = newBuilding.State;

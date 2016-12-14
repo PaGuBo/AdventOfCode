@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Building.cs" />
     <Compile Include="BuildingComparer.cs" />
+    <Compile Include="Material.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
