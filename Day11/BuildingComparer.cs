@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Day11
 {
-    public class BuildingComparer : IEqualityComparer<Item>
+    public class BuildingComparer : IEqualityComparer<Building>
     {
-        public bool Equals(Item x, Item y)
+        public bool Equals(Building x, Building y)
         {
             return x.State == y.State;
         }
 
-        public int GetHashCode(Item obj)
+        public int GetHashCode(Building obj)
         {
             return obj.State.GetHashCode();
         }

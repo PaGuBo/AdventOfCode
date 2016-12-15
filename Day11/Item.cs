@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Day11
 {
-    public class Item
+    public class Item : IComparable<Item>
     {
         public Item(Material material, ItemType itemType)
         {
@@ -15,5 +15,32 @@ namespace Day11
         }
         public Material Material;
         public ItemType ItemType;
+
+        public int CompareTo(Item other)
+        {
+            if (Material > other.Material)
+            {
+                return 1;
+            }
+            else if(Material < other.Material)
+            {
+                return -1;
+            }
+            else
+            {
+                if (ItemType > other.ItemType)
+                {
+                    return 1;
+                }
+                else if (ItemType < other.ItemType)
+                {
+                    return -1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+        }
     }
 }

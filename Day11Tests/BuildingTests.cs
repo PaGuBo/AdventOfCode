@@ -23,7 +23,7 @@ namespace Day11.Tests
                 new List<Item> { new Item(Material.LITHIUM, ItemType.GENERATOR)},
                 new List<Item> { } };
 
-            Item building = new Item(map, 0);
+            Building building = new Building(map, 0);
             Assert.IsTrue(building.IsValid());
         }
         //[TestMethod()]

@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace Day11
 {
-    public class Item : ICloneable
+    public class Building : ICloneable
     {
         public List<List<Item>> Map { get; private set; }
         public Dictionary<string, int> History { get; set; }
         public int ElevatorFloor { get; set; }
 
-        public Item(List<List<Item>> map, int elevatorFloor) : this(map, elevatorFloor, new Dictionary<string, int>())
+        public Building(List<List<Item>> map, int elevatorFloor) : this(map, elevatorFloor, new Dictionary<string, int>())
         {
 
         }
-        public Item(List<List<Item>> map, int elevatorFloor, Dictionary<string, int> history)
+        public Building(List<List<Item>> map, int elevatorFloor, Dictionary<string, int> history)
         {
             Map = map;
             ElevatorFloor = elevatorFloor;
@@ -27,13 +27,13 @@ namespace Day11
             get
             {
                 var sb = new StringBuilder();
-                sb.Append(this.ElevatorFloor);
+                sb.Append($"({this.ElevatorFloor}) ");
                 for(int i = 0; i < Map.Count; i++)
                 {
-                    sb.Append($"{i}");
+                    sb.Append($"F{i}:");
                     foreach (var item in Map[i].OrderBy(x => x))
                     {
-                        sb.Append($"{(byte)item.Material}{(byte)item.ItemType}");
+                        sb.Append($"[{(byte)item.Material},{(byte)item.ItemType}] ");
                     }
                     
                 }
@@ -124,7 +124,7 @@ namespace Day11
             }
             
 
-            return new Item(map, ElevatorFloor, history);
+            return new Building(map, ElevatorFloor, history);
         }
 
 
