@@ -15,13 +15,13 @@ namespace Day11.Tests
         public void IsValidTest_1()
         {
 
-            List<List<Item>> map = new List<List<Item>> {
-                new List<Item> { new Item(Material.HYDROGEN, ItemType.MICROCHIP),
+            var map = new List<HashSet<Item>> {
+                new HashSet<Item> { new Item(Material.HYDROGEN, ItemType.MICROCHIP),
                                  new Item(Material.LITHIUM, ItemType.MICROCHIP)},
 
-                new List<Item> { new Item(Material.HYDROGEN, ItemType.GENERATOR)},
-                new List<Item> { new Item(Material.LITHIUM, ItemType.GENERATOR)},
-                new List<Item> { } };
+                new HashSet<Item> { new Item(Material.HYDROGEN, ItemType.GENERATOR)},
+                new HashSet<Item> { new Item(Material.LITHIUM, ItemType.GENERATOR)},
+                new HashSet<Item> { } };
 
             Building building = new Building(map, 0);
             Assert.IsTrue(building.IsValid());

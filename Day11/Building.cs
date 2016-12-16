@@ -8,40 +8,49 @@ namespace Day11
 {
     public class Building : ICloneable
     {
-        public List<List<Item>> Map { get; private set; }
-        public Dictionary<string, int> History { get; set; }
+        public List<HashSet<Item>> Map { get; private set; }
+        public HashSet<string> History { get; set; }
         public int ElevatorFloor { get; set; }
 
-        public Building(List<List<Item>> map, int elevatorFloor) : this(map, elevatorFloor, new Dictionary<string, int>())
+        public Building(List<HashSet<Item>> map, int elevatorFloor) : this(map, elevatorFloor, new HashSet<string>())
         {
 
         }
-        public Building(List<List<Item>> map, int elevatorFloor, Dictionary<string, int> history)
+        public Building(List<HashSet<Item>> map, int elevatorFloor, HashSet<string> history)
         {
             Map = map;
             ElevatorFloor = elevatorFloor;
             History = history;
         }
+        //i could probably save a lot of time by figuring out a better way to serialize the data
         public string State
         {
             get
             {
                 var sb = new StringBuilder();
-                sb.Append($"({this.ElevatorFloor}) ");
-                for(int i = 0; i < Map.Count; i++)
+                sb.Append($"({ElevatorFloor}) ");
+                for (int i = 0; i < Map.Count; i++)
                 {
                     sb.Append($"F{i}:");
-                    foreach (var item in Map[i].OrderBy(x => x))
+
+                    var groupedItems = Map[i].GroupBy(x => x.Material)
+                                           .Select(g => new {
+                                               Material = g.Key, 
+                                               Count = g.Count(),
+                                               Type = g.Count() == 2 ? 0 : g.FirstOrDefault().ItemType
+                                           }).ToList();
+                    //add all the pairs
+                    sb.Append($"P{groupedItems.Where(x => x.Count == 2).Count()}");
+                    foreach(var item in groupedItems.Where(x => x.Count == 1).OrderBy(x => x.Material))
                     {
-                        sb.Append($"[{(byte)item.Material},{(byte)item.ItemType}] ");
+                        sb.Append($"[{(byte) item.Material},{(byte) item.Type}] ");
                     }
-                    
                 }
                 return sb.ToString().Trim();
             }
         }
 
-        
+
 
         public bool IsValid()
         {
@@ -79,7 +88,7 @@ namespace Day11
         }
         public bool IsSolved()
         {
-            return Map[0].Count == 0 && Map[1].Count == 0 && Map[2].Count == 0 && 
+            return Map[0].Count == 0 && Map[1].Count == 0 && Map[2].Count == 0 &&
                 (Map[3].Where(x => x.ItemType == ItemType.MICROCHIP)
                               .All(x => Map[3].Where(y => y.ItemType == ItemType.GENERATOR)
                                              .Any(y => y.Material == x.Material)));
@@ -88,7 +97,7 @@ namespace Day11
         {
             var sb = new StringBuilder();
             //sb.AppendLine(this.History.Count().ToString());
-            
+
             //for (int i = 0; i < Map.Count; i++)
             //{
             //    if (i == ElevatorFloor)
@@ -110,19 +119,15 @@ namespace Day11
 
         public object Clone()
         {
-            var map = new List<List<Item>>();
-            foreach(var floor in Map)
+            var map = new List<HashSet<Item>>();
+            foreach (var floor in Map)
             {
-                var items = new List<Item>();
-                items.AddRange(floor);
+                var items = new HashSet<Item>(floor);
+                //items.AddRange(floor);
                 map.Add(items);
             }
-            var history = new Dictionary<string, int>();
-            foreach (var x in History)
-            {
-                history.Add(x.Key, x.Value);
-            }
-            
+            var history = new HashSet<string>();
+            history.UnionWith(History);
 
             return new Building(map, ElevatorFloor, history);
         }
