@@ -6,18 +6,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace AdventOfCode.SleighPuzzles.Tests
 {
     [TestClass()]
     public class Day20Tests
     {
         [TestMethod()]
-        [DeploymentItem(@"2016\Inputs\", "Inputs")]
-        public void LowestAllowedIpTest()
+        [DeploymentItem(@"Inputs\", "Inputs")]
+        public void LowestAllowedIpTest_2()
         {
-            var testData = System.IO.File.ReadAllLines(@"Inputs\Day20simple.txt");
-            
-            Assert.AreEqual(3, Day20.LowestAllowedIp(testData));
+            var testData = System.IO.File.ReadAllLines(@"Inputs\day20full.txt");
+            Assert.AreEqual(17348574, Day20.LowestAllowedIp(testData));
+        }
+
+
+        [TestMethod()]
+        [DeploymentItem(@"Inputs\", "Inputs")]
+        public void NumberOfAllowedIps_2()
+        {
+            var testData = System.IO.File.ReadAllLines(@"Inputs\day20full.txt");
+            Assert.AreEqual(104, Day20.NumberOfAllowedIps(testData));
         }
     }
 }
