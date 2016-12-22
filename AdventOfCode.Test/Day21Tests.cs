@@ -26,5 +26,13 @@ namespace AdventOfCode.SleighPuzzles.Tests
             var input = System.IO.File.ReadLines(@"Inputs\day21b.txt").ToList();
             Assert.AreEqual("bdfhgeca", Day21.ScramblePassword("abcdefgh", input));
         }
+
+        [TestMethod()]
+        [DeploymentItem(@"Inputs\", "Inputs")]
+        public void UnscramblePasswordTest_a()
+        {
+            var input = System.IO.File.ReadLines(@"Inputs\day21b.txt").ToList();
+            Assert.AreEqual("gdfcabeh", Day21.Unscramble("fbgdceah", input));
+        }
     }
 }

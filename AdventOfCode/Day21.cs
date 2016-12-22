@@ -9,7 +9,7 @@ namespace AdventOfCode.SleighPuzzles
 {
     public static class Day21
     {
-        public static string ScramblePassword(string password, List<string> instructions, bool unscramble = false)
+        public static string ScramblePassword(string password, List<string> instructions)
         {
             var scrambledPassword = new StringBuilder(password);
             var swapXYPosition = new Regex(@"^swap position (?<xPosition>\d*) with position (?<yPosition>\d*)$");
@@ -102,6 +102,52 @@ namespace AdventOfCode.SleighPuzzles
                 Console.WriteLine($"   Current password is {scrambledPassword.ToString()}");
             }
             return scrambledPassword.ToString();
+        }
+
+        public static string Unscramble(string scrambledPassword, List<string> instructions)
+        {
+            string str = "abcdefgh";
+            var perms = new List<string>();
+            char[] arr = str.ToCharArray();
+            GetPer(arr, perms);
+            foreach(var perm in perms)
+            {
+                if (ScramblePassword(perm, instructions) == scrambledPassword)
+                {
+                    return perm;
+                }
+            }
+            return "";
+        }
+        private static void Swap(ref char a, ref char b)
+        {
+            if (a == b) return;
+
+            a ^= b;
+            b ^= a;
+            a ^= b;
+        }
+
+        public static void GetPer(char[] list, List<string> perms)
+        {
+            int x = list.Length - 1;
+            GetPer(list, perms, 0, x);
+        }
+
+        private static void GetPer(char[] list, List<string> perms, int k, int m)
+        {
+            if (k == m)
+            {
+                perms.Add(new string(list));
+                //Console.Write(list);
+            }
+            else
+                for (int i = k; i <= m; i++)
+                {
+                    Swap(ref list[k], ref list[i]);
+                    GetPer(list, perms, k + 1, m);
+                    Swap(ref list[k], ref list[i]);
+                }
         }
     }
 }
