@@ -67,6 +67,7 @@
     <Compile Include="Day17Tests.cs" />
     <Compile Include="Day18Tests.cs" />
     <Compile Include="Day19Tests.cs" />
+    <Compile Include="Day20Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -101,6 +102,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Inputs\day09.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Inputs\Day20simple.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Inputs\listOfRooms.txt">
